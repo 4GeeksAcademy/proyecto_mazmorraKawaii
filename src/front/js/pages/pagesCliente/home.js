@@ -1,5 +1,6 @@
+//Pagina principal de incio, debe tener su carrousel con link, +juegos mas vendidos (idelamente), quizas un juego jaja.
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 

@@ -1,0 +1,1 @@
+//mensaje de compra realizada, revisa tu mail, debe aparecer luego de los pagos. y ojala redireccionar al inicio 

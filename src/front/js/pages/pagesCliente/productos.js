@@ -1,0 +1,1 @@
+//visualizacion de productos cuando se les da click. //ver si es viable

@@ -1,0 +1,1 @@
+//carrito, aca se deben ver los prodcutos que se agregan, el boton de navbar te trae aca! aparece la tabla con los productos seleccionados, su precio, cantidad total y boton de proceder con compra

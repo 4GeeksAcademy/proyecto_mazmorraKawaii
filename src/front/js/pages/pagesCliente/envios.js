@@ -1,0 +1,1 @@
+//este es el form post poner realizar compra, se trae el componente de formulario.
