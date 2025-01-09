@@ -1,0 +1,77 @@
+ /* Footer General */
+ .footer {
+    background-color: #ffe4e1; /* Mismo color rosado que el navbar */
+    padding: 20px 0;
+    width: 100%;
+  }
+  
+  /* Contenedor Superior */
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  /* Logo y Texto */
+  .footer-logo-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    height: 125px;
+    object-fit: contain;
+    margin-right: 15px;
+  }
+  
+  .footer-text {
+    color: black;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    margin: 0;
+  }
+  
+  /* Síguenos */
+  .footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .footer-follow-link {
+    font-size: 1rem;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-follow-link:hover {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .footer-icon {
+    font-size: 1.5rem;
+    margin-left: 5px;
+  }
+  
+  /* Línea separadora */
+  .footer-divider {
+    margin: 10px 20px;
+    border: 0;
+    border-top: 1px solid black; /* Línea delgada separadora */
+  }
+  
+  /* Contenedor Inferior */
+  .footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .footer-bottom-text {
+    color: black;
+    margin: 0;
+    font-size: 0.9rem;
+  }

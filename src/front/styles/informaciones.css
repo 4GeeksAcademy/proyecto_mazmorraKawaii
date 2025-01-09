@@ -1,0 +1,47 @@
+.informaciones-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #ffffff; /* Fondo blanco */
+  }
+  
+  .container {
+    flex: 1;
+    max-width: 960px; /* Tamaño máximo del contenedor */
+    padding-bottom: 50px; /* Espacio inferior */
+  }
+  
+  /* Estilo de las tarjetas */
+  .card {
+    border: none; /* Quita bordes */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  /* Encabezados de títulos */
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Accordion estilos */
+  .accordion-button {
+    background-color: #f8f9fa; /* Color claro */
+    border: none;
+    font-weight: bold;
+  }
+  
+  .accordion-button:hover {
+    color: #000; /* Color negro al pasar el mouse */
+  }
+  
+  /* Acentuar botones desplegados */
+  .accordion-button:not(.collapsed) {
+    background-color: #fce4ec; /* Color rosado */
+    color: #000;
+  }
+  
+  /* Textos en cursiva */
+  .fst-italic {
+    font-style: italic;
+  }
+  

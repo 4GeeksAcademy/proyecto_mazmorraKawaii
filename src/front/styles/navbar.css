@@ -1,0 +1,116 @@
+/* General */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffe4e1;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+  }
+  
+  /* Contenedor Superior */
+  .navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    background-color: #ffe4e1;
+  }
+  
+  /* Buscador */
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .search-input {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .search-button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  /* Logo */
+  .navbar-logo {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .logo {
+    height: 100px;
+    object-fit: contain;
+  }
+  
+  /* Carrito */
+  .navbar-cart {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+  }
+  
+  .cart-link {
+    
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .cart-link:hover {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .cart-icon {
+    margin-left: 5px;
+    font-size: 1.5rem;
+  }
+  
+  /* Contenedor Inferior */
+  .navbar-bottom {
+    display: flex;
+    justify-content: center;
+    background-color: #ffe4e1;
+    padding: 10px 0;
+    width: 100%;
+  }
+  
+  .nav-button {
+    text-decoration: none;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: pink;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background-color: #ff7baa;
+    color: white;
+  }
