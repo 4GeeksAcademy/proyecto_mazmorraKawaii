@@ -5,15 +5,16 @@ import '../../../styles/form.css';
 
 const Contacto = () => {
   const fields = [
-    { name: 'nombre', label: 'Nombre', type: 'text', required: true },
-    { name: 'email', label: 'Correo Electrónico', type: 'email', required: true },
-    { name: 'telefono', label: 'Teléfono', type: 'text', required: true, placeholder: '9 87654321' },
-    { name: 'mensaje', label: 'Mensaje', type: 'textarea', required: true },
+    { name: 'nombre', label: 'Nombre y Apellido', type: 'text', required: true, placeholder: 'Ejemplo: Frodo Bolsón' },
+    { name: 'email', label: 'Correo Electrónico', type: 'email', required: true, placeholder:'Ejemplo: frodo@mail.com'},
+    { name: 'telefono', label: 'Teléfono', type: 'text', required: true, placeholder: '9 1234567' },
+    { name: 'mensaje', label: 'Mensaje', type: 'textarea', required: true, placeholder: 'Deja tu mensaje'},
   ];
 
   const handleSubmit = (formData) => {
     console.log('Datos del formulario de Contacto enviados:', formData);
-    // ver q mas poner
+    alert('Mensaje enviado! Gracias por contactarse');
+    document.getElementById('contact-form').reset(); //limpia campos
   };
 
   return (

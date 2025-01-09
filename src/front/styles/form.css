@@ -2,28 +2,41 @@
     background-color: #ffffff;
     min-height: 100vh; 
     padding-bottom: 50px; 
-}
-
-.container { 
+  }
+  
+  .container { 
     max-width: 960px; 
-}
-
-.form-group { 
+  }
+  
+  .form-group { 
     margin-bottom: 1rem;
- }
-
- .form-control { 
+  }
+  
+  .form-control { 
     width: 100%; 
     padding: 0.5rem; 
     border: 1px solid #ced4da; 
     border-radius: 0.25rem; 
-}
-
-.btn-primary { 
+  }
+  
+  /* Botón de envío */
+  .btn-primary { 
     background-color: #ff7baa; 
     border-color: #ff7baa; 
     color: white; 
     padding: 0.5rem 1rem; 
     border-radius: 0.25rem; 
     cursor: pointer; 
-}
+    float: left; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  
+  .btn-primary:hover { 
+    background-color: #ff0066; 
+  
+  }
+  .btn-primary:active { 
+    background-color: #cc0052; 
+  }
+  
