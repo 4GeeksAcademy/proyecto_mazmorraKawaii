@@ -13,6 +13,7 @@ import { Footer } from "./component/footer";
 import Informaciones from "./pages/pagesCliente/informaciones";
 import Contacto from "./pages/pagesCliente/contacto";
 import Envios from "./pages/pagesCliente/envios";
+import Carrito from "./pages/pagesCliente/carrito";
 
 //create your first component
 const Layout = () => {
@@ -32,6 +33,7 @@ const Layout = () => {
                         <Route element={<Informaciones />} path="/informaciones" />
                         <Route element={<Contacto />} path="/contacto" />
                         <Route element={<Envios />} path="/envios" />
+                        <Route element={<Carrito />} path="/carrito" />
 
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />

@@ -21,13 +21,24 @@ export const fetchData = async (endpoint, method = 'GET', data = null) => {
   }
 };
 
-// funcion form
+//form
 export const sendContactData = async (formData) => {
   try {
     const response = await apiClient.post('/contacto', formData);
     return response.data;
   } catch (error) {
     console.error('Error al enviar los datos de contacto:', error);
+    throw error;
+  }
+};
+
+//carrito
+export const getCarrito = async () => {
+  try {
+    const response = await apiClient.get('/carrito');
+    return response.data;
+  } catch (error) {
+    console.error('Error al obtener el carrito:', error);
     throw error;
   }
 };
