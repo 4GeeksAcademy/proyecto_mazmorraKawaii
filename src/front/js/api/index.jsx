@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const apiClient = axios.create({
   baseURL: 'http://localhost:3001/api',
   headers: {
@@ -10,9 +9,6 @@ const apiClient = axios.create({
 
 export const fetchData = async (endpoint, method = 'GET', data = null) => {
   try {
-    
-
-
     const response = await apiClient({
       method,
       url: endpoint,
@@ -21,7 +17,17 @@ export const fetchData = async (endpoint, method = 'GET', data = null) => {
     return response.data;
   } catch (error) {
     console.error('API Error:', error);
-  
+    throw error;
+  }
+};
+
+// funcion form
+export const sendContactData = async (formData) => {
+  try {
+    const response = await apiClient.post('/contacto', formData);
+    return response.data;
+  } catch (error) {
+    console.error('Error al enviar los datos de contacto:', error);
     throw error;
   }
 };

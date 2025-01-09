@@ -230,21 +230,39 @@ def delete_juego(juego_id):
 @api.route('/contacto', methods=['POST'])
 def send_message():
     data = request.json
-    nuevo_contacto = Contacto(**data)
-    db.session.add(nuevo_contacto)
-    db.session.commit()
-    return jsonify(nuevo_contacto.serialize()), 201
+    try:
+        nuevo_contacto = Contacto(
+            nombre=data['nombre'],
+            email=data['email'],
+            telefono=data['telefono'],
+            mensaje=data['mensaje'],
+            fecha_envio=datetime.utcnow(),
+            leido=False
+        )
+        db.session.add(nuevo_contacto)
+        db.session.commit()
+        return jsonify(nuevo_contacto.serialize()), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 400
 
 @api.route('/contactos', methods=['GET'])
 def view_messages():
-    mensajes = Contacto.query.all()
-    return jsonify([mensaje.serialize() for mensaje in mensajes]), 200
+    try:
+        mensajes = Contacto.query.all()
+        return jsonify([mensaje.serialize() for mensaje in mensajes]), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 
 @api.route('/contacto/<int:contacto_id>', methods=['PUT'])
 def mark_as_read(contacto_id):
-    contacto = Contacto.query.get(contacto_id)
-    if not contacto:
-        raise APIException('Contacto not found', status_code=404)
-    contacto.leido = True
-    db.session.commit()
-    return jsonify(contacto.serialize()), 200
+    try:
+        contacto = Contacto.query.get(contacto_id)
+        if not contacto:
+            return jsonify({"error": "Contacto not found"}), 404
+        contacto.leido = True
+        db.session.commit()
+        return jsonify(contacto.serialize()), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 400
