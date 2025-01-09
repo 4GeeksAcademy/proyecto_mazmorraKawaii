@@ -12,6 +12,8 @@ const Card = ({ titulo, descripcion, precio, tiempo_juego, modalidad, categoria,
         <p className="card-text"><strong>Tiempo de Juego:</strong> {tiempo_juego}</p>
         <p className="card-text"><strong>Modalidad:</strong> {modalidad}</p>
         <p className="card-text"><strong>Categoría:</strong> {categoria}</p>
+      </div>
+      <div className="card-footer">
         <button className="btn btn-primary add-to-cart" onClick={onAddToCart}>Añadir al Carrito</button>
       </div>
     </div>

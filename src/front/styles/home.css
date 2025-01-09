@@ -1,26 +1,62 @@
-/* home.css */
 .home-page {
-    background-color: #ffffff;
-  }
+  background-color: #ffffff;
+}
+
+.carousel-container {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.filtros {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  appearance: none;
+  background-color: #fff;
+  color: #000;
+}
+
+.form-control option { 
+  background-color: #ff7baa; 
+  color: #fff; 
+  }  
   
-  .carousel-container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-  }
+  .form-control:focus { 
+  outline: none; 
+  border-color: #ff7baa; 
+  box-shadow: 0 0 10px #ff7baa; 
+  } 
   
-  .carousel-image {
-    width: 100%;
-    height: auto;
+  .form-control select:focus option {
+  background-color: #ff7baa;
+  color: #fff;
   }
-  
-  .container {
-    max-width: 960px;
-  }
-  
-  .grid-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  

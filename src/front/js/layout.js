@@ -13,7 +13,6 @@ import { Footer } from "./component/footer";
 import Informaciones from "./pages/pagesCliente/informaciones";
 import Contacto from "./pages/pagesCliente/contacto";
 import Envios from "./pages/pagesCliente/envios";
-import Catalogo from "./pages/pagesCliente/catalogo";
 
 //create your first component
 const Layout = () => {
@@ -29,8 +28,7 @@ const Layout = () => {
                 <ScrollToTop>
                     <NavbarComponent/>
                     <Routes>
-                        <Route element={<Home />} path="/" />
-                        <Route element={<Catalogo />} path="/catalogo" />
+                        <Route element={<Home />} path="/" /> {/* inicio-productos */}
                         <Route element={<Informaciones />} path="/informaciones" />
                         <Route element={<Contacto />} path="/contacto" />
                         <Route element={<Envios />} path="/envios" />

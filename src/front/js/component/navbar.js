@@ -37,8 +37,7 @@ export const NavbarComponent = () => {
 
       {/* Contenedor Inferior */}
       <div className="navbar-bottom">
-        <Link to="/" className="nav-button pink-button">Inicio</Link>
-        <Link to="/catalogo" className="nav-button pink-button">Catálogo</Link>
+        <Link to="/" className="nav-button pink-button">Productos</Link>
         <Link to="/informaciones" className="nav-button pink-button">Informaciones</Link>
         <Link to="/contacto" className="nav-button pink-button">Contacto</Link>
       </div>
