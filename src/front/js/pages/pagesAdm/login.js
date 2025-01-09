@@ -1,12 +1,13 @@
 /* import React, { useState } from 'react';
 import { loginAdmin } from '../../api/index'; // Importar desde api
 import '../../../styles/login.css'; 
+import emailjs from "@emailjs/browser"
 
 function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => {   //falta liberia de emailjs creo e instalar
     e.preventDefault();
     loginAdmin(email, password)
       .then(response => {
