@@ -1,0 +1,29 @@
+.form-page { 
+    background-color: #ffffff;
+    min-height: 100vh; 
+    padding-bottom: 50px; 
+}
+
+.container { 
+    max-width: 960px; 
+}
+
+.form-group { 
+    margin-bottom: 1rem;
+ }
+
+ .form-control { 
+    width: 100%; 
+    padding: 0.5rem; 
+    border: 1px solid #ced4da; 
+    border-radius: 0.25rem; 
+}
+
+.btn-primary { 
+    background-color: #ff7baa; 
+    border-color: #ff7baa; 
+    color: white; 
+    padding: 0.5rem 1rem; 
+    border-radius: 0.25rem; 
+    cursor: pointer; 
+}

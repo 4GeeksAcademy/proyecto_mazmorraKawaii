@@ -1,27 +1,51 @@
-//Pagina principal de incio, debe tener su carrousel con link, +juegos mas vendidos (idelamente), quizas un juego jaja.
-import React, { useContext } from "react";
-import { Context } from "../../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
-import "../../styles/home.css";
+// Home.jsx
+import React, { useEffect, useState } from 'react';
+import Card from '../../component/card';
+import '../../../styles/home.css';
+import portada from '../../../img/portada.png';
 
-export const Home = () => {
-	const { store, actions } = useContext(Context);
+const Home = () => {
+  const [destacados, setDestacados] = useState([]);
 
-	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-			<div className="alert alert-info">
-				{store.message || "Loading message from the backend (make sure your python backend is running)..."}
-			</div>
-			<p>
-				This boilerplate comes with lots of documentation:{" "}
-				<a href="https://start.4geeksacademy.com/starters/react-flask">
-					Read documentation
-				</a>
-			</p>
-		</div>
-	);
+  useEffect(() => {
+    // Fetch data from the API for featured products and set the state
+    fetch('http://tu-api-endpoint/destacados')
+      .then(response => response.json())
+      .then(data => setDestacados(data))
+      .catch(error => console.error('Error fetching destacados:', error));
+  }, []);
+
+  const handleAddToCart = (juegoId) => {
+    console.log(`Añadir al carrito el juego con ID: ${juegoId}`);
+    // Lógica para añadir el juego al carrito
+  };
+
+  return (
+    <div className="home-page">
+      <div className="carousel-container">
+        <img src={portada} alt="Portada" alt="Portada" className="carousel-image" />
+      </div>
+      
+      <div className="container py-5">
+        <h2 className="text-center mb-5">Productos Destacados</h2>
+        <div className="grid-container">
+          {destacados.map(juego => (
+            <Card
+              key={juego.id}
+              titulo={juego.titulo}
+              descripcion={juego.descripcion}
+              precio={juego.precio}
+              tiempo_juego={juego.tiempo_juego}
+              modalidad={juego.modalidad}
+              categoria={juego.categoria}
+              imagen_url={juego.imagen_url}
+              onAddToCart={() => handleAddToCart(juego.id)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
+
+export default Home;
