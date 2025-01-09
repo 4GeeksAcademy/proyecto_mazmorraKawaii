@@ -43,8 +43,9 @@ app.register_blueprint(api, url_prefix='/api')
 # Handle/serialize errors like a JSON object
 
 # JWT configuration
-app.config['JWT_SECRET_KEY'] = '1234'  # poner + segura
-jwt = JWTManager(app)
+#app.config['JWT_SECRET_KEY'] = '1234'  # poner + segura
+
+#jwt = JWTManager(app)
 
 @app.errorhandler(APIException)
 def handle_invalid_usage(error):
