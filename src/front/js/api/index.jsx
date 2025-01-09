@@ -43,4 +43,17 @@ export const getCarrito = async () => {
   }
 };
 
+//login user admi
+/* export const loginAdmin = (email, password) => {
+  return axios.post('http://127.0.0.1:3001/api/login', { email, password }); //me tinca q tengo problemas con rutas, entre las publicas vs las q no y las q visualiza el back
+};
+
+export const requestPasswordReset = (email) => {
+  return axios.post('http://127.0.0.1:3001/api/request_reset', { email });
+};
+
+export const resetPassword = (token, newPassword) => {
+  return axios.post(`http://127.0.0.1:3001/api/reset_password/${token}`, { new_password: newPassword });
+}; */
+
 export default apiClient;
