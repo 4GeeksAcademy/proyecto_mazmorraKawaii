@@ -4,6 +4,9 @@ from api.utils import APIException
 from flask_cors import CORS
 from datetime import datetime
 import uuid
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token
+
 
 api = Blueprint('api', __name__)
 
@@ -183,50 +186,53 @@ def update_orden_estado(orden_id):
     return jsonify(orden.serialize()), 200
 
 
-# Administradores routes
-@api.route('/admin/login', methods=['POST'])
-def admin_login():
+# Administrador login: 
+@api.route('/register', methods=['POST'])
+def register():
     data = request.json
-    admin = Administrador.query.filter_by(email=data.get('email')).first()
-    if not admin or admin.contrasena != data.get('contrasena'):
-        raise APIException('Invalid credentials', status_code=401)
-    return jsonify({"message": "Login successful"}), 200
+    user = User.query.filter_by(email=data['email']).first()
+    if user:
+        return jsonify({"error": "User already exists"}), 400
 
-#@api.route('/admin/dashboard', methods=['GET'])
-#def admin_dashboard():
-    # Implement dashboard data fetching logic
-#    return jsonify({"message": "Dashboard data"}), 200
+    new_user = User(
+        email=data['email'],
+        is_active=True
+    )
+    new_user.set_password(data['password'])
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify(new_user.serialize()), 201
 
-@api.route('/admin/juego', methods=['POST'])
+@api.route('/login', methods=['POST'])
+def login():
+    data = request.json
+    user = User.query.filter_by(email=data['email']).first()
+    if user and user.check_password(data['password']):
+        access_token = create_access_token(identity=user.id) # genera token JWT
+        return jsonify({"message": "Login successful", "access_token": access_token}), 200
+    return jsonify({"error": "Invalid credentials"}), 401
+
+@api.route('/reset_password', methods=['POST'])
+def reset_password():
+    # logica de restablecer contrase;a con email.js
+    pass
+
+#admi crud:
+@api.route('/admin/juego', methods=['POST']) 
+@jwt_required() 
 def create_juego():
-    data = request.json
-    nuevo_juego = Juego(**data)
-    db.session.add(nuevo_juego)
-    db.session.commit()
-    return jsonify(nuevo_juego.serialize()), 201
+ current_user = get_jwt_identity()
+ # Solo permitir si es administrador
+ # (Aquí verificarías si current_user tiene permisos de administrador)
+ data = request.json
+ nuevo_juego = Juego(**data)
+ db.session.add(nuevo_juego)
+ db.session.commit()
+ return jsonify(nuevo_juego.serialize()), 201 
+# Otros endpoints CRUD protegidos por @jwt_required()
 
-@api.route('/admin/juego/<int:juego_id>', methods=['PUT'])
-def update_juego(juego_id):
-    juego = Juego.query.get(juego_id)
-    if not juego:
-        raise APIException('Juego not found', status_code=404)
-    data = request.json
-    for key, value in data.items():
-        setattr(juego, key, value)
-    db.session.commit()
-    return jsonify(juego.serialize()), 200
 
-@api.route('/admin/juego/<int:juego_id>', methods=['DELETE'])
-def delete_juego(juego_id):
-    juego = Juego.query.get(juego_id)
-    if not juego:
-        raise APIException('Juego not found', status_code=404)
-    db.session.delete(juego)
-    db.session.commit()
-    return jsonify({"message": "Juego deleted"}), 200
-#falta leer/ver producto, se pondra? 
-
-# Contacto routes
+# Contacto (es la page con el form para clientes)
 @api.route('/contacto', methods=['POST'])
 def send_message():
     data = request.json
