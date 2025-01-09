@@ -1,5 +1,4 @@
 //este es el form post poner realizar compra, se trae el componente de formulario.
-// PaginaEnvios.jsx
 import React from 'react';
 import Formulario from '../../component/form';
 import '../../../styles/form.css';
