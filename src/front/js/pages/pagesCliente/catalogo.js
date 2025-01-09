@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../component/card';
 import '../../../styles/catalogo.css';
+import apiClient from './../../api/index.jsx';
 
 const Catalogo = () => {
   const [juegos, setJuegos] = useState([]);
@@ -12,11 +13,17 @@ const Catalogo = () => {
   });
 
   useEffect(() => {
-    // Fetch data from the API for catalog products and set the state
-    fetch('http://tu-api-endpoint/juegos')
-      .then(response => response.json())
-      .then(data => setJuegos(data))
-      .catch(error => console.error('Error fetching juegos:', error));
+    // Define the asynchronous function inside useEffect
+    const fetchJuegos = async () => {
+      try {
+        const response = await apiClient.get('/juegos');
+        setJuegos(response.data);
+      } catch (error) {
+        console.error('Error fetching juegos:', error);
+      }
+    };
+
+    fetchJuegos(); // Call the asynchronous function
   }, []);
 
   const handleFiltroChange = (event) => {

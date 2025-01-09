@@ -3,16 +3,15 @@ import React, { useEffect, useState } from 'react';
 import Card from '../../component/card';
 import '../../../styles/home.css';
 import portada from '../../../img/portada.png';
+import apiClient from './../../api/index.jsx';
 
 const Home = () => {
   const [destacados, setDestacados] = useState([]);
 
-  useEffect(() => {
+  useEffect(async() => {
     // Fetch data from the API for featured products and set the state
-    fetch('http://tu-api-endpoint/destacados')
-      .then(response => response.json())
-      .then(data => setDestacados(data))
-      .catch(error => console.error('Error fetching destacados:', error));
+    const response = await apiClient.get('/juegos');
+    setDestacados(response.data);
   }, []);
 
   const handleAddToCart = (juegoId) => {
@@ -23,7 +22,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <div className="carousel-container">
-        <img src={portada} alt="Portada" alt="Portada" className="carousel-image" />
+        <img src={portada} alt="Portada" className="carousel-image" />
       </div>
       
       <div className="container py-5">
