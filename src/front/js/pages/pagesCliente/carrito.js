@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
-import apiClient from '../../api/index.jsx';
+import { useNavigate } from 'react-router-dom';
+import apiClient from '../../api/index.jsx'; //ver por que no lo toma
 import '../../../styles/carrito.css';
 
 const Carrito = () => {
   const [carrito, setCarrito] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Cargar la información del carrito desde localStorage
     const carritoLocalStorage = JSON.parse(localStorage.getItem('carrito')) || [];
-    setCarrito(carritoLocalStorage);
+    const carritoConCantidad = carritoLocalStorage.map(item => ({
+      ...item,
+      cantidad: item.cantidad || 1  // Establece la cantidad a 1 
+    }));
+    setCarrito(carritoConCantidad);
   }, []);
 
   const handleRemoveFromCart = (index) => {
@@ -29,6 +35,9 @@ const Carrito = () => {
   const calcularTotal = () => {
     return carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
   };
+  const handleFinalizarCompra = () => {
+    navigate('/Compra'); // Navegar a la página de realizar compra 
+   };
 
   if (carrito.length === 0) {
     return (
@@ -66,7 +75,7 @@ const Carrito = () => {
       </div>
       <div className="carrito-total">
         <h3>Total: ${calcularTotal().toFixed(2)}</h3>
-        <button className="btn-finalizar">Finalizar Compra</button>
+        <button className="btn-finalizar" onClick={handleFinalizarCompra}>Finalizar Compra</button>
       </div>
     </div>
   );

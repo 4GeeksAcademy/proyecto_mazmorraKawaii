@@ -12,7 +12,7 @@ import NavbarComponent, { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Informaciones from "./pages/pagesCliente/informaciones";
 import Contacto from "./pages/pagesCliente/contacto";
-import Envios from "./pages/pagesCliente/envios";
+import Compra from "./pages/pagesCliente/realizarCompra";
 import Carrito from "./pages/pagesCliente/carrito";
 //import AdminLogin from "./pages/pagesAdm/login";
 
@@ -34,7 +34,7 @@ const Layout = () => {
                         <Route element={<Home />} path="/" /> {/* inicio-productos */}
                         <Route element={<Informaciones />} path="/informaciones" />
                         <Route element={<Contacto />} path="/contacto" />
-                        <Route element={<Envios />} path="/envios" />
+                        <Route element={<Compra />} path="/Compra" />
                         <Route element={<Carrito />} path="/carrito" />
 
                         {/*<Route element={<AdminLogin />} path="/AdmiLogin" />*/}

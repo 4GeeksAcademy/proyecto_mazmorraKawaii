@@ -99,6 +99,7 @@ class OrdenCompra(db.Model):
     region_cliente = db.Column(db.String(255), nullable=False)
     telefono_cliente = db.Column(db.String(9), nullable=False)
     email_cliente = db.Column(db.String(255), nullable=False)
+    comprobanteImg_url = db.Column(db.String(255), nullable=True) #cambiar a flase una vez sepa de cloudinary
     detalles = db.relationship('DetalleOrden', back_populates='orden', cascade='all, delete')
 
     def serialize(self):
@@ -113,7 +114,8 @@ class OrdenCompra(db.Model):
             "region_cliente": self.region_cliente,
             "telefono_cliente": self.telefono_cliente,
             "email_cliente": self.email_cliente,
-            "detalles": [detalle.serialize() for detalle in self.detalles]
+            "detalles": [detalle.serialize() for detalle in self.detalles],
+            "comprobanteImg_url" : self.comprobanteImg_url
         }
 
 class Contacto(db.Model): 

@@ -46,17 +46,16 @@ const Informaciones = () => {
                     </h3>
                     <div id="pregunta1" className="accordion-collapse collapse">
                       <div className="accordion-body">
-                        Comprar en nuestra tienda es fácil, rápido y 100% online. Sigue estos sencillos pasos:
+                        Sigue estos sencillos pasos:
                         <br /><br />
                         <b>Explora y selecciona:</b> Navega por nuestra colección de juegos de mesa, manuales de rol y kits de cartas TCG. Encuentra los productos que te encantan y agrégalos a tu carrito de compras.
                         <br /><br />
                         <b>Revisa tu carrito:</b> Una vez que tengas todo lo que necesitas, dirígete al carrito para confirmar tu selección.
                         <br /><br />
-                        <b>Completa tus datos:</b> Al proceder con el pago, te pediremos la información necesaria para procesar tu pedido y asegurar una entrega rápida y segura.
+                        <b>Realiza el pago, manda tu comprobante y completa tus datos:</b> Por ahora trabajamos mediante transferencias bancarias, una vez realices tu pago deberás guardar tu comprobante y enviárnoslo, además deberás poner tus datos para el envío, por nuestro lado revisaremos si está todo en orden lo antes que podamos y una vez confirmemos todo realizaremos el envío!
                         <br /><br />
-                        <b>Realiza el pago:</b> Elige tu método de pago favorito y confirma tu compra. ¡Así de sencillo!
-                        <br /><br />
-                        En cuanto completes el proceso, recibirás un correo de confirmación con los detalles de tu pedido. Nos encargaremos de que llegue a tus manos lo más pronto posible para que empieces a disfrutar.
+                        
+                        Nuestro sistema es tan fácil como pagarle a un amigo! y como nos importas, nos encargaremos de gestionar tu pedido lo antes posible para que empieces a disfrutar!
                         <br /><br />
                         ¡Gracias por elegirnos para llevar la diversión a tu hogar! 🎲✨
                       </div>
