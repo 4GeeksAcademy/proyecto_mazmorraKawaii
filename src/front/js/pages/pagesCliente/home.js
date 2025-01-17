@@ -85,7 +85,7 @@ const Home = () => {
         <div className="grid-container">
           {juegosFiltrados.map(juego => (
             <Card
-              key={juego.id}
+              id={juego.id}
               titulo={juego.titulo}
               descripcion={juego.descripcion}
               precio={juego.precio}

@@ -1,11 +1,12 @@
 import React from 'react';
 import '../../styles/card.css';
 
-const Card = ({ titulo, descripcion, precio, tiempo_juego, modalidad, categoria, imagen_url, onAddToCart }) => {
+const Card = ({ id, titulo, descripcion, precio, tiempo_juego, modalidad, categoria, imagen_url, onAddToCart }) => {
 
   const handleAddToCart = () => {
     // obj juego
     const juego = {
+      id,
       titulo,
       descripcion,
       precio,

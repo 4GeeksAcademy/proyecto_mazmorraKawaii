@@ -1,19 +1,20 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Enum
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin # type: ignore
 
 db = SQLAlchemy()
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = "User"
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), unique=False, nullable=False)
-    is_active = db.Column(db.Boolean(), unique=False, nullable=False)
+    is_active = db.Column(db.Boolean(), unique=False, nullable=False, default=True)
 
     def set_password(self, password):
-        self.password_hash = generate_password_hash(password) 
+        self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
@@ -137,18 +138,4 @@ class Contacto(db.Model):
             "mensaje": self.mensaje,
             "fecha_envio": self.fecha_envio.strftime("%Y-%m-%d %H:%M:%S") if self.fecha_envio else None,
             "leido": self.leido
-        }
-
-class Administrador(db.Model):
-    __tablename__ = "Administrador"
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
-    nombre = db.Column(db.String(255), nullable=False)
-    email = db.Column(db.String(255), unique=True, nullable=False)
-    contrasena = db.Column(db.String(255), nullable=False)
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "nombre": self.nombre,
-            "email": self.email
         }
