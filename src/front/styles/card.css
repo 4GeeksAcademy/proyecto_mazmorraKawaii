@@ -17,7 +17,8 @@
 
 .card-body {
   padding: 1rem;
-  flex-grow: 1; }
+  flex-grow: 1;
+}
 
 .card-title {
   font-size: 1.25rem;
@@ -30,9 +31,15 @@
 
 .card-footer {
   display: flex;
-  justify-content: flex-end; /* Alinea el botón al final */
+  justify-content: flex-end;
   padding: 1rem;
   background-color: #fff;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
 }
 
 .add-to-cart {
@@ -45,6 +52,13 @@
   transition: background-color 0.3s ease;
 }
 
-.add-to-cart:hover { 
-  background-color: #e5739a; 
-  border-color: #e5739a; }
+.add-to-cart:hover {
+  background-color: #e5739a;
+  border-color: #e5739a;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-basis: 100%;
+  }
+}
